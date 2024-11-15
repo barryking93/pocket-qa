@@ -49,7 +49,7 @@ pocketprotector::puppet::server: puppet.qa.infrastructurenerds.com
 pocketprotector::puppet::server::puppetboard::secret_key: e3ccef267fe9e4d5290c679ad36f3ada2f27ec79a07ca3ee37a98da626af0bcd
 pocketprotector::puppetdb::server: puppet.qa.infrastructurenerds.com
 pocketprotector::puppet::server::altname: puppet
-pocketprotector::puppet::server::git::url: git@github.com:barryking93/pocket-qa.git
+pocketprotector::puppet::server::git::url: https://github.com/barryking93/pocket-qa.git
 
 pocketprotector::roles:
   dosfo3:
