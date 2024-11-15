@@ -44,7 +44,7 @@ pocketprotector::netsvc::ntp::servers:
   - 3.ubuntu.pool.ntp.org iburst
 
 pocketprotector::packages::update::email: alerts@infrastructurenerds.com
-pocketprotector::puppet::branch: qa
+pocketprotector::puppet::branch: main 
 pocketprotector::puppet::server: puppet.qa.infrastructurenerds.com
 pocketprotector::puppet::server::puppetboard::secret_key: e3ccef267fe9e4d5290c679ad36f3ada2f27ec79a07ca3ee37a98da626af0bcd
 pocketprotector::puppetdb::server: puppet.qa.infrastructurenerds.com

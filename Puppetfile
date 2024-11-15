@@ -2,7 +2,7 @@
 
 mod 'pocketprotector',
  :git => 'https://github.com/barryking93/pocketprotector.git',
- :branch => 'development'
+ :branch => 'qa'
 
 mod 'puppetlabs-accounts', :latest
 mod 'puppetlabs-docker', :latest
