@@ -1,0 +1,70 @@
+# hieradata/common.yaml
+#
+# common variables
+#
+
+lookup_options:
+  sudo::configs:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
+
+# default location
+pocketprotector::location: dosfo3
+
+pocketprotector::monitoring::librenms::server: librenms.qa.infrastructurenerds.com
+pocketprotector::monitoring::librenms::server::virthost: 10.124.0.3
+pocketprotector::monitoring::nagios::adminemail: alerts@infrastructurenerds.com
+pocketprotector::monitoring::nagios::adminpager: alerts@infrastructurenerds.com
+pocketprotector::monitoring::nagios::server: nagios.qa.infrastructurenerds.com
+pocketprotector::monitoring::nagios::server::ip: 10.124.0.3
+pocketprotector::monitoring::snmp::contact: alerts@infrastructurenerds.com
+pocketprotector::monitoring::snmp::ro_community: pocketqaANDSTUFF!
+pocketprotector::monitoring::snmp::ro_network: 10.124.0.0/20 
+
+pocketprotector::mta::options::relayhost: 10.124.0.3
+pocketprotector::mta::aliases:
+  root: alerts@infrastructurenerds.com
+  postmaster: root
+pocketprotector::mta::domain: infrastructurenerds.com
+pocketprotector::mta::postfix::options::satellite: true
+pocketprotector::mta::postfix::config:
+  relayhost: '10.124.0.3'
+pocketprotector::mta::postfix::transport:
+  - "root@%{facts.fqdn} root@%{lookup('pocketprotector::mta::domain')}"
+  - "postmaster@%{facts.fqdn} postmaster@%{lookup('pocketprotector::mta::domain')}"
+pocketprotector::mta::postfix::virtual:
+  - "root@%{facts.fqdn} root@%{lookup('pocketprotector::mta::domain')}"
+  - "postmaster@%{facts.fqdn} postmaster@%{lookup('pocketprotector::mta::domain')}"
+
+pocketprotector::netsvc::ntp::servers:
+  - 0.ubuntu.pool.ntp.org iburst
+  - 1.ubuntu.pool.ntp.org iburst
+  - 2.ubuntu.pool.ntp.org iburst
+  - 3.ubuntu.pool.ntp.org iburst
+
+pocketprotector::packages::update::email: alerts@infrastructurenerds.com
+pocketprotector::puppet::branch: qa
+pocketprotector::puppet::server: puppet.qa.infrastructurenerds.com
+pocketprotector::puppet::server::puppetboard::secret_key: e3ccef267fe9e4d5290c679ad36f3ada2f27ec79a07ca3ee37a98da626af0bcd
+pocketprotector::puppetdb::server: puppet.qa.infrastructurenerds.com
+pocketprotector::puppet::server::altname: puppet
+pocketprotector::puppet::server::git::url: git@github.com:barryking93/pocket-qa.git
+
+pocketprotector::roles:
+  dosfo3:
+    files:
+      '/etc/cron.hourly/droplet-agent':
+        ensure: absent
+    packages:
+      do-agent:
+        ensure: latest
+    repositories:
+      droplet-agent:
+        location: https://repos.insights.digitalocean.com/apt/do-agent/
+        release: main
+        repos: main
+        key:
+          id: 902C44B42EA9A17F8578510977B79B3FFAF7EF65
+          source: https://repos.insights.digitalocean.com/sonar-agent.asc
+

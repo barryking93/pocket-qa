@@ -1,0 +1,15 @@
+# hieradata/nodes/puppet.qa.infrastructurenerds.com.yaml
+#
+# puppet server
+#
+
+pocketprotector::monitoring::nagios::client::ip: 10.124.0.2
+
+pocketprotector::puppet::server::javaargs: -Xms768m -Xmx768m -Djruby.logger.class=com.puppetlabs.jruby_utils.jruby.Slf4jLogger
+pocketprotector::puppet::server::puppetboard::hostname: puppetboard.qa.infrastructurenerds.com
+# python3 -c 'import secrets; print(secrets.token_hex())'
+pocketprotector::puppet::server::puppetboard::secret_key: '"cf3aff8487d7e8799c008ce6ce6972c4c3a4c843939db506ae85e76db26c236d"'
+
+pocketprotector::roles::assigned:
+  - dosfo3
+
