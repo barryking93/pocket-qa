@@ -61,7 +61,7 @@ pocketprotector::roles:
     exec:
       # DO droplets don't come with swap
       'mkswap':
-        command: '/usr/bin/fallocate -l 2G /swapfile ; /usr/bin/mkswap /swapfile ; /usr/sbin/swapon /swapfile ; echo "/swapfile       none    swap    sw      0       0" >> /etc/fstab'
+        command: '/usr/bin/fallocate -l 2G /swapfile ; /usr/bin/chmod 600 /swapfile ; /usr/bin/mkswap /swapfile ; /usr/sbin/swapon /swapfile ; echo "/swapfile       none    swap    sw      0       0" >> /etc/fstab'
         creates: /swapfile
     files:
       '/etc/cron.hourly/droplet-agent':
