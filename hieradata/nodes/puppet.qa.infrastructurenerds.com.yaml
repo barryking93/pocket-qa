@@ -17,6 +17,11 @@ nginx::nginx_servers:
       charset: utf-8
       gzip: 'on'
       expires: 4h
+nginx::nginx_locations:
+  'puppetboard_qa_root':
+    server: 'puppetboard_qa'
+    location: '/'      
+    location_cfg_append:
       proxy_pass: http://localhost:8080
 
 pocketprotector::monitoring::nagios::client::ip: 10.124.0.2
