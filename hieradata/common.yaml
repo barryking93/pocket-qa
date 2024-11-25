@@ -58,6 +58,11 @@ pocketprotector::puppet::server::git::url: https://github.com/barryking93/pocket
 
 pocketprotector::roles:
   dosfo3:
+    exec:
+      # DO droplets don't come with swap
+      'mkswap':
+        command: '/usr/bin/fallocate -l 2G /swapfile ; /usr/bin/mkswap /swapfile ; /usr/sbin/swapon ; echo "/swapfile       none    swap    sw      0       0" >> /etc/fstab'
+        creates: /swapfile
     files:
       '/etc/cron.hourly/droplet-agent':
         ensure: absent
