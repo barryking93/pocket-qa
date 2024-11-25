@@ -22,7 +22,7 @@ nginx::nginx_locations:
     server: 'puppetboard_qa'
     location: '/'      
     location_cfg_append:
-      proxy_pass: http://localhost:8080
+      proxy_pass: http://localhost:8088
 
 pocketprotector::monitoring::nagios::client::ip: 10.124.0.2
 
