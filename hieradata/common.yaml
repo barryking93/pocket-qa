@@ -9,6 +9,11 @@ lookup_options:
       strategy: deep
       merge_hash_arrays: true
 
+pocketprotector::files:
+  '/root/.tmux.conf':
+    mode: '0600'
+    source: puppet:///modules/qa/tmux.conf.root
+
 # default location
 pocketprotector::location: dosfo3
 
