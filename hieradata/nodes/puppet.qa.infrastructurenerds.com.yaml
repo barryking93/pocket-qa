@@ -6,7 +6,7 @@
 nginx::nginx_servers:
   'puppetboard_qa':
     server_name:
-      - puppetboard.qa.infrastructurenerds.com
+      - puppetboardqa.infrastructurenerds.com
     listen_port: 80
     access_log: /var/log/nginx/puppetboard.access.log
     error_log: /var/log/nginx/puppetboard.error.log
