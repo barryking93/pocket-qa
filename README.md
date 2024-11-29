@@ -3,4 +3,4 @@ being a public QA/testing control repo for use with [pocketprotector](https://gi
 
 want to see what's going on?
 
-take a look at the [puppetboard](https://puppetboardqa.infrastructurenerds.com/) it generates
+take a look at the [puppetboard](https://puppetboardqa.infrastructurenerds.com/main) it generates
